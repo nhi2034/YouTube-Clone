@@ -7,13 +7,20 @@ body {
   background-color: rgb(248, 248, 248);
 }
 
+@media (min-width: 1200.1px) {
+  body {
+    margin-left: 170px;
+  }
+}
+
 p {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-a{
+a {
   text-decoration: none;
+
   color: black;
 }
 
@@ -23,12 +30,12 @@ a{
   top: 0;
   right: 0;
   left: 0;
+ 
   z-index: 100;
 
   height: 55px;
   display: flex;
   flex-direction: row;
-
   justify-content: space-between;
 
   border-bottom-width: 1px;
@@ -57,8 +64,8 @@ a{
   display: flex;
   flex: 1;
   align-items: center;
-  max-width: 480px;
-  margin-left: 60px;
+  max-width: 500px;
+  margin-left: 70px;
 }
 
 .search-bar {
@@ -72,13 +79,10 @@ a{
   border-radius: 2px;
   box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.05);
   width: 0;
-
   box-sizing: border-box;
-
 }
 
 .search-bar::placeholder {
-  font-family: Roboto, Arial, Helvetica, sans-serif;
   font-size: 16px;
 }
 
@@ -87,7 +91,6 @@ a{
 .upload-icon-container,
 .youtube-app-icon-container {
   position: relative;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -108,7 +111,6 @@ a{
 
 }
 
-
 .search-button .tooltip,
 .voice-search-button .tooltip,
 .upload-icon-container .tooltip,
@@ -124,11 +126,11 @@ a{
   border-radius: 2px;
   opacity: 0;
   transition: opacity 0.15s;
+
   pointer-events: none;
 
   white-space: nowrap;
 }
-
 
 .search-button:hover .tooltip,
 .voice-search-button:hover .tooltip,
@@ -156,14 +158,12 @@ a{
   width: 24px;
 }
 
-
 .right-session {
   width: 180px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-shrink: 0;
-
   margin-left: 29px;
   margin-right: 24px;
 }
@@ -189,7 +189,6 @@ a{
 .notifications-count {
   position: absolute;
   top: -3px;
-
   right: -5px;
   background-color: rgb(200, 0, 0);
   color: white;
@@ -209,7 +208,6 @@ a{
   cursor: pointer;
 }
 
-
 .sidebar {
   position: fixed;
   background-color: white;
@@ -223,7 +221,6 @@ a{
 
 .sidebar-link {
   height: 74px;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -236,6 +233,10 @@ a{
   background-color: rgb(235, 235, 235);
 }
 
+.sidebar-link:active {
+  background-color: grey;
+}
+
 .sidebar-link img {
   height: 24px;
   margin-bottom: 6px;
@@ -245,11 +246,111 @@ a{
   font-size: 10px;
 }
 
+/*Reponsive for Sidebar*/
+@media (max-width: 1200px) {
+  .sidebar {
+    position: fixed;
+    background-color: white;
+    top: 55px;
+    bottom: 0;
+    left: 0;
+    width: 72px;
+    z-index: 200;
+    padding-top: 4px;
+  }
+
+  .sidebar-link {
+    height: 74px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+    transition: background-color 0.15s;
+  }
+
+  .sidebar-link:hover {
+    background-color: rgb(235, 235, 235);
+  }
+
+  .sidebar-link:active {
+    background-color: grey;
+  }
+
+  .sidebar-link img {
+    height: 24px;
+    margin-bottom: 6px;
+  }
+
+  .sidebar-link p {
+    font-size: 10px;
+  }
+}
+
+@media (min-width: 1200.1px) {
+  .sidebar {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    top: 55px;
+    background-color: white;
+    width: 180px;
+    z-index: 200;
+    padding-top: 13px;
+    padding-left: 40px;
+  }
+
+  .sidebar-link {
+    display: flex;
+    flex-direction: row;
+    justify-self: start;
+    align-items: center;
+    height: 50px;
+  }
+
+  .sidebar-link:hover {
+    background-color: rgb(235, 235, 235);
+  }
+
+  .sidebar-link:active {
+    background-color: grey;
+  }
+
+  .sidebar-link img {
+    height: 24px;
+    margin-right: 24px;
+  }
+
+  .sidebar-link p {
+    font-size: 14px;
+  }
+}
+
 .video-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   column-gap: 15px;
+
   row-gap: 40px;
+}
+
+
+@media (max-width: 750px) {
+  .video-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 751px) and (max-width: 999px) {
+  .video-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (min-width: 1000px) {
+  .video-grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }
 
 .thumbnails-row {
@@ -267,6 +368,32 @@ a{
   font-size: 14px;
   line-height: 20px;
   font-weight: 500;
+}
+
+@media (max-width: 1000px) {
+  .video-title {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .video-author,
+  .video-stats,
+  .video-time {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 1000.1px) {
+  .video-title {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .video-author,
+  .video-stats,
+  .video-time {
+    font-size: 14px;
+  }
 }
 
 .video-author,
@@ -299,7 +426,6 @@ a{
 
 .channel-picture {
   vertical-align: top;
-
 }
 
 .profile-picture {
@@ -307,3 +433,10 @@ a{
   border-radius: 50px;
 }
 
+.chanel-tooltip {
+  position: absolute;
+  background-color: white;
+  display: flex;
+
+  width: 100px;
+}
